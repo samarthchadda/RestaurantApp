@@ -1,0 +1,101 @@
+<br><br>
+<div class="container my-5">
+    <!-- when the cart is EMPTY --> 
+<div class="text-center my-5" *ngIf="foodOrders.totalPrice===0;">
+    <h4>NO Order Placed</h4>
+    <button class="btn-primary btn-lg mt-3" routerLink="/menu">GO TO MENU</button>
+</div>
+
+
+    <!-- when the cart has some ITEMS -->
+<ng-container  *ngIf="foodOrders.totalPrice!==0;">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table">
+                <thead class="table-dark">
+                    <tr class="text-center">
+                        <th>Image</th>
+                        <th>Dish Name</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>SubTotal</th>
+                        
+                    </tr>
+                </thead>
+                <tbody> 
+                    <tr *ngFor="let food of foodDetails;let i = index">
+                        <td class="d-flex align-items-center justify-content-around">
+                            <img [src]="food.foodImg" alt="{{food.foodNm}}" class="order-1" height="60">
+                            <span class="text-danger mr-md-2" style="cursor: pointer;"><i class="fa fa-trash" ></i></span>
+                        </td>
+
+                        <td>
+                            <p>{{food.foodNm}}</p>
+                        </td>
+
+                        <td>
+                            <p>{{food.foodPrice}}</p>
+                        </td>
+                   
+                        <td>
+                            <form>
+                                <!-- <div class="value-button" id="decrease" >
+                                    <i class="fa fa-minus"></i>
+                                </div>
+                                <input type="number" id="number" [value]="food.qty">
+                                <div class="value-button" id="increase" >
+                                    <i class="fa fa-plus"></i>
+                                </div> -->
+                                                  
+                                 <input class="form-control" id="ex1" type="text" [value]="food.qty" min="1" readonly>
+                                                 
+                            </form>
+                        </td>
+
+                        <td>
+                            <p>{{calculateSubTotal(food.foodId) | currency:'INR'}}</p>
+                        </td>
+                      
+                    </tr>
+                    <tr class="border-0">
+                        <td style="border:none;"></td>
+                        <td></td>
+                        <td></td>
+                        <td><h2>Total Amount : </h2></td>
+                        <td><h2>{{ foodOrders.totalPrice | currency:'INR'}}</h2></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- <div class="col-md-6 d-flex mb-5">
+            <div class="d-flex justify-content-between flex-sm-column flex-md-row w-100 ">
+                <a routerLink="/checkOut" class="btn btn-success btn-sm order-1">Check Out</a>
+                
+            </div>
+        </div>
+
+        <div class="col-md-6 d-flex mb-5">
+            <div class="d-flex justify-content-between flex-sm-column flex-md-row w-100 ">
+                <button class="btn btn-danger btn-sm order-1">Cancel Order</button>
+                
+            </div>
+        </div> -->
+
+        <div class="col-xs-6 ">
+            <a routerLink="/checkOut" class="btn btn-success btn-sm order-1">Check Out</a>
+        </div>
+
+        <div class="col-xs-6">
+            <button class="btn btn-danger btn-sm order-1" style="float: right;" type="button" (click)="cancelOrder()">Cancel Order</button>
+        </div>
+        
+
+    </div>
+
+</ng-container>
+
+</div>
+
+
+

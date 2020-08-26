@@ -1,0 +1,26 @@
+<br><br>
+<div class="row">
+    <div class="col-xs-6">
+        <div *ngFor="let food of foodMenu; ">
+            <a style="cursor: pointer;" 
+            [routerLink]="[food.foodId]"
+            routerLinkActive="active"
+            [queryParams]="{detail:true}"
+            class="list-group-item clearfix" >
+                <div class="pull-left">
+                    <h4 class="list-group-item-heading">{{food.foodNm}}</h4>
+                    <p class="list-group-item-text">{{food.foodDesc.substr(0,50)}}...</p><br>
+                    <h5 class="list-group-item-heading">{{food.foodPrice | currency: 'INR'}}</h5>
+                </div>
+                <span class="pull-right">
+                    <img [src]="food.foodImg" alt="" class="img-responsive" style="max-height:50px;">
+                </span>
+            </a>
+            </div>
+                
+    </div>
+    <div class="col-xs-6">
+        <router-outlet></router-outlet>
+    </div>
+
+</div>

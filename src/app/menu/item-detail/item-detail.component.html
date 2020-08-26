@@ -1,0 +1,71 @@
+<div class="row">
+    <div class="col-xs-12 text-center" style="text-align: center;">
+        <img [src]="foodItem.foodImg" 
+        alt="{{foodItem.foodNm}}"
+         class="img-responsive"
+         style="height:300px; width: 400px;">
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12">
+        <h1>{{foodItem.foodNm}}</h1>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-xs-12">
+        {{foodItem.foodDesc}}
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12">
+        <h3>Price : Rs.{{foodItem.foodPrice }} </h3>
+    </div>
+</div>
+
+<br><br>
+<div class="row">
+    <div class="col-xs-7">
+        <form class="form-group">
+            <!-- <div class="col-xs-1">
+                <div  id="decrease" (click)="print()">
+                    <i class="glyphicon glyphicon-minus"></i>
+                </div>
+            </div>
+ 
+            <div class="col-xs-2">
+            <input type="number" id="number"  readonly value="1">
+            </div>
+            
+          <div class="col-xs-1">
+            <div id="increase" (click)="print()" >
+                <i class="glyphicon glyphicon-plus"></i>
+            </div>
+          </div> -->
+<!--             
+          <button class="btn btn-danger" type="button">-</button>
+          <input type="text" >
+          <button class="btn btn-danger" type="button">+</button> -->
+          
+          <div class="col-xs-2" style="margin-left: 0px; padding-left: 0px;">
+            <button class="btn btn-danger" type="button" id="decrease" (click)="decrease()">-</button>
+          </div>
+          <div class="col-xs-3" style="margin-left: 0px; padding-left: 0px;">
+            <input class="form-control" id="ex1" type="text" [value]="quantity" min="1" readonly>
+          </div>
+          <div class="col-xs-2" style="margin-left: 0px; padding-left: 0px;">
+            <button class="btn btn-danger" type="button" id="increase" (click)="increase()">+</button>
+          </div>
+
+        </form>
+    </div>
+    <div class="col-xs-5">
+        <button class="btn btn-success btn-block" type="button()" (click)="placeOrder()">Place Order</button>
+    </div>
+</div>
+<br><br>
+
+ <!-- <h2>Recipe Detail ID : {{id}}</h2> -->

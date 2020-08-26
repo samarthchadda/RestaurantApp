@@ -1,0 +1,10 @@
+
+.image{
+    height:810px; background-size:cover; width:auto;
+    background-image:url('./restaurantImg.jpg');
+
+    background-position:50% 50%;
+    background-repeat: repeat-y;
+    
+    
+  }
